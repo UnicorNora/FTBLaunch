@@ -28,24 +28,24 @@ public class Locations {
     public static final String mc_res = "https://resources.download.minecraft.net/";
     //location of them Mojang server that hosts the Minecraft Maven host
     public static final String mc_libs = "https://libraries.minecraft.net/";
-    //location of the FTB maven repo within the FTB2/static part of the repository
+    //location of the FTB maven repo within the ftb-legacy-repo/static part of the repository
     public static final String ftb_maven = "maven/";
     //TODO fix MD5's on CH
-    public static final String chRepo = "https://dist.creeper.host";
+    public static final String chRepo = "https://archive.org/download/";
     //this changes based on the primary automatic server in the balancing logic
     //DO NOT ACCESS UNILL 1st DL thread has finished setting up!!!!
-    public static String fcdn = "https://ftb.forgecdn.net";
-    public static String fcdnNoHTTP = "ftb.forgecdn.net";
-    public static String masterRepoNoHTTP = "dist.creeper.host";
-    public static String masterRepo = "https://dist.creeper.host";
-    public static String oldMasterRepo = "http://ftb.cursecdn.com";
-    public static String oldMasterRepoNoHTTP = "ftb.cursecdn.com";
+    public static String fcdn = "https://archive.org/download/";
+    public static String fcdnNoHTTP = "archive.org/download";
+    public static String masterRepoNoHTTP = "archive.org/download";
+    public static String masterRepo = "https://archive.org/download/";
+    public static String oldMasterRepo = "https://archive.org/download/";
+    public static String oldMasterRepoNoHTTP = "archive.org/download";
     // used in mirroring logic
     public static boolean primaryCH = true;
     public static boolean chEnabled = true;
     public static boolean curseEnabled = true;
 
-    public static String FTB2 = "FTB2/";
+    public static String FTB2 = "ftb-legacy-repo/";
     //FULL location of the FTB maven repo
     public static final String FTBMAVENFULL = chRepo + "/" + FTB2 + "maven/";
 

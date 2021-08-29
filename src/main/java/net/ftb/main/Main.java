@@ -346,7 +346,7 @@ public class Main {
 
         // not good location for this. Loader must wait until other packs are loaded....
         try {
-            RetiredPacksLoader retiredPacksLoader = new RetiredPacksLoader(new URL(Locations.masterRepo + "/FTB2/static/hiddenpacks.json"),
+            RetiredPacksLoader retiredPacksLoader = new RetiredPacksLoader(new URL(Locations.masterRepo + "/ftb-legacy-repo/static/hiddenpacks.json"),
                     OSUtils.getCacheStorageLocation(), Settings.getSettings().getInstallPath());
             retiredPacksLoader.start();
         } catch (Exception e) {

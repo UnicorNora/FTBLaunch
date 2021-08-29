@@ -68,7 +68,7 @@ public final class DownloadUtils extends Thread {
                 resolved = Locations.fcdn;
             }
         }
-        resolved += "/FTB2/" + file;
+        resolved += "/ftb-legacy-repo/" + file;
         HttpURLConnection connection = null;
         try {
             connection = (HttpURLConnection) new URL(resolved).openConnection();
@@ -79,7 +79,7 @@ public final class DownloadUtils extends Thread {
                 if (connection.getResponseCode() != 200) {
                     Logger.logDebug("failed");
                     AppUtils.debugConnection(connection);
-                    resolved = "https://" + server + "/FTB2/" + file;
+                    resolved = "https://" + server + "/ftb-legacy-repo/" + file;
                     connection = (HttpURLConnection) new URL(resolved).openConnection();
                     connection.setRequestProperty(CACHE_CONTROL, "no-transform");
                     connection.setRequestMethod("HEAD");
@@ -101,7 +101,7 @@ public final class DownloadUtils extends Thread {
     public static String getStaticCreeperhostLinkOrBackup (String file, String backupLink) {
         String resolved = (downloadServers.containsKey(Settings.getSettings().getDownloadServer())) ? "https://" + downloadServers.get(Settings.getSettings().getDownloadServer())
                 : Locations.masterRepo;
-        resolved += "/FTB2/static/" + file;
+        resolved += "/ftb-legacy-repo/static/" + file;
         HttpURLConnection connection = null;
         boolean good = false;
         try {
@@ -113,7 +113,7 @@ public final class DownloadUtils extends Thread {
                     Logger.logDebug("failed");
                     // TODO: remove responseCode test later.
                     AppUtils.debugConnection(connection, connection.getResponseCode() != 404);
-                    resolved = "https://" + server + "/FTB2/static/" + file;
+                    resolved = "https://" + server + "/ftb-legacy-repo/static/" + file;
                     connection = (HttpURLConnection) new URL(resolved).openConnection();
                     connection.setRequestProperty(CACHE_CONTROL, "no-transform");
                     connection.setRequestMethod("HEAD");
@@ -145,7 +145,7 @@ public final class DownloadUtils extends Thread {
     public static String getStaticCreeperhostLink (String file) {
         String resolved = (downloadServers.containsKey(Settings.getSettings().getDownloadServer())) ? "https://" + downloadServers.get(Settings.getSettings().getDownloadServer())
                 : Locations.masterRepo;
-        resolved += "/FTB2/static/" + file;
+        resolved += "/ftb-legacy-repo/static/" + file;
         HttpURLConnection connection = null;
         try {
             connection = (HttpURLConnection) new URL(resolved).openConnection();
@@ -157,7 +157,7 @@ public final class DownloadUtils extends Thread {
                     if (connection.getResponseCode() != 200) {
                         Logger.logDebug("failed");
                         AppUtils.debugConnection(connection);
-                        resolved = "https://" + server + "/FTB2/static/" + file;
+                        resolved = "https://" + server + "/ftb-legacy-repo/static/" + file;
                         connection = (HttpURLConnection) new URL(resolved).openConnection();
                         connection.setRequestProperty(CACHE_CONTROL, "no-transform");
                         connection.setRequestMethod("HEAD");
@@ -193,7 +193,7 @@ public final class DownloadUtils extends Thread {
      */
     public static boolean fileExists (String file) {
         try {
-            HttpURLConnection connection = (HttpURLConnection) new URL(Locations.masterRepo + "/FTB2/" + file).openConnection();
+            HttpURLConnection connection = (HttpURLConnection) new URL(Locations.masterRepo + "/ftb-legacy-repo/" + file).openConnection();
             connection.setRequestProperty(CACHE_CONTROL, "no-transform");
             connection.setRequestMethod("HEAD");
             return (connection.getResponseCode() == 200);
@@ -343,7 +343,7 @@ public final class DownloadUtils extends Thread {
         //String resolved = (downloadServers.containsKey(Settings.getSettings().getDownloadServer())) ? "http://" + downloadServers.get(Settings.getSettings().getDownloadServer()) : Locations.masterRepo;
 
         String resolved = Locations.masterRepo + "/" + Locations.FTB2;
-        resolved += "md5/FTB2/" + url;
+        resolved += "md5/ftb-legacy-repo/" + url;
         String backup = Locations.masterRepo + "/" + Locations.FTB2 + url + ".md5";
         HttpURLConnection connection = null;
         try {
@@ -463,7 +463,7 @@ public final class DownloadUtils extends Thread {
                 String json = null;
                 // Fetch the percentage json first
                 try {
-                    json = IOUtils.toString(new URL(Locations.chRepo + "/FTB2/static/repodata.json"));
+                    json = IOUtils.toString(new URL(Locations.chRepo + "/ftb-legacy-repo/static/repodata.json"));
                 } catch (IOException e) {
                     curseFailed = true;
                 }
